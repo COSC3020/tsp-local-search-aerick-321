@@ -51,7 +51,6 @@ function tsp_ls(distance_matrix) {
         else{
             noimprove++;
         }
-       return dist;
     }
     
     return route;
