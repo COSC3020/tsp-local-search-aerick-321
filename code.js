@@ -1,7 +1,18 @@
 function tsp_ls(distance_matrix) {
 //Initialize random route
-   let route1; 
-//Set incumbent route as the random route
+   //Set incumbent route as the random route
+   function randomRoute(cities) {
+   
+       let route = Array.from({ length: cities }, (_, index) => index);
+       for (let i = route.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1)); // Random index
+           [route[i], route[j]] = [route[j], route[i]]; // Swap elements
+       }
+
+       return route;
+   }
+
+   
 //Repeat until stopping condition met:
    function randomik(n){
             let i = Math.floor(Math.random() * (n-1));
@@ -18,7 +29,9 @@ function tsp_ls(distance_matrix) {
         }
     
     //Calculate new route length
-        let newroute = route.length;
+       
+      let dist = distance_matrix[i][k];
+      let newroute = dist;
 
      /*If new route is shorter:
         Update incumbent route
@@ -31,6 +44,7 @@ function tsp_ls(distance_matrix) {
         else{
             noimprove++;
         }
+       return dist;
     }
     
     return route;
