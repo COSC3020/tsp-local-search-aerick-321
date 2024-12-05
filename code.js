@@ -1,4 +1,11 @@
 function tsp_ls(distance_matrix) {
+   if (distance_matrix.length === 0 || distance_matrix[0].length === 0) {
+        return 0; // No cities to visit
+    }
+    if (distance_matrix.length === 1) {
+        return 0; // Only one city, no travel needed
+    }
+   
 //Initialize random route
    //Set incumbent route as the random route
    function randomRoute(cities) {
