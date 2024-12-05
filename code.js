@@ -35,7 +35,7 @@ function tsp_ls(distance_matrix) {
    let noimprove = 0;
    while (noimprove < 100) {
        let i = Math.floor(Math.random() * (route.length-1));
-       let k = Math.floor(Math.random() *(route.length-i-1) + i+1);
+       let k = Math.floor(Math.random() * (route.length-i-1)) + i+1;
       
        let newroute = optSwap(route, i, k);
        let newdist = distance(newroute);
@@ -53,6 +53,6 @@ function tsp_ls(distance_matrix) {
         }
     }
     
-    return route;
+    return currentdist;
 }
 
