@@ -39,6 +39,8 @@ the previous one did otherwise. Start with the template I provided in `code.js`.
 Describe in your code how you designed your stopping criterion and ways of
 choosing $i$ and $k$ and why.
 
+I chose to use convergence for the stopping criterion because I felt that it would be the most accurate without taking too much time and it would limit repeated routes if you just set it for a specific amount of itereations. I have it set to test for up to 100 iterations without improve to find the shortest route. I just have i and k being chosen randomly but making sure thay are not the same.
+
 The function takes a distance matrix (the adjacency matrix for the graph where
 the values in the cells are the distances between the corresponding cities) and
 returns the length of the shortest tour (not the tour itself).
@@ -50,3 +52,18 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
+
+Time complexity: The randomroute function has a complexity of O(n) because the shuffling is linear, the distance iterates through all the cities in the route which is also O(n), in optiswap the slice and reverse takes O(n) and the while loop at worst case will run 100 consecutive times so the total complexity in O(n+n+n+100(n)) which simplifies to just O(n).
+
+Space complexity: For the randomroute the memory is O(n) because it creates an array to store the shuffled cities, the distance is O(1) because it uses a constant amount of memory since no new data structures are created, the optswap is also O(n) because it creates new arrays with the slice. There is not addtianl data structures created that would increase memory so the total memory complexity is O(n).
+
+Had trouble starting so chat gpt gave me the outline 
+Initialize random route,
+Set incumbent route as the random route,
+Repeat until stopping condition met:
+    Select random i and k,
+    Perform 2-opt swap,
+    Calculate new route length,
+    If new route is shorter:
+        Update incumbent route,
+Return length of shortest route “I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.”
