@@ -53,7 +53,7 @@ What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
 
-Time complexity: The randomroute function has a complexity of O(n) because the shuffling is linear, the distance iterates through all the cities in the route which is also O(n), in optiswap the slice and reverse takes O(n) and the while loop at worst case will run 100 consecutive times so the total complexity in O(n+n+n+100(n)) which simplifies to just O(n).
+Time complexity: The randomroute function has a complexity of O(n) because the shuffling is linear, the distance iterates through all the cities in the route which is also O(n), in optiswap the slice and reverse takes O(n) and the while loop will run 100 consecutive times and that is O(100n). The worst case is it goes through every itereation to improve until there is no improvement left and the max number of improvements is n!. So the total complexity in O(n+n+n+100(n) x n!) which simplifies to O(n*n!).
 
 Space complexity: For the randomroute the memory is O(n) because it creates an array to store the shuffled cities, the distance is O(1) because it uses a constant amount of memory since no new data structures are created, the optswap is also O(n) because it creates new arrays with the slice. There is not addtianl data structures created that would increase memory so the total memory complexity is O(n).
 
